@@ -12,7 +12,8 @@
       <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.10.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="http://www.scala-lang.org/api/2.12.10/" />
+      <root url="https://www.scala-lang.org/api/2.12.10/" />
+      <root url="https://www.scala-lang.org/api/2.12.10/scala/index.html" />
     </JAVADOC>
     <SOURCES />
   </library>
