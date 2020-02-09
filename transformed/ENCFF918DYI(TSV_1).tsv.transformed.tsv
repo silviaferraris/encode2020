@@ -1,4 +1,4 @@
-chr	start	stop	strand	gene_id	transcript_id	gene_name	gene_type	transcript_name	transcript_type	TPM	FPKM	posterior_mean_count	posterior_standard_deviation_of_count	pme_TPM	pme_FPKM	TPM_ci_lower_bound	TPM_ci_upper_bound	FPKM_ci_lower_bound	
+chr	start	stop	strand	gene_id	transcript_id	gene_name	gene_type	transcript_name	transcript_type	TPM	FPKM	posterior_mean_count	posterior_standard_deviation_of_count	pme_TPM	pme_FPKM	TPM_ci_lower_bound	TPM_ci_upper_bound	FPKM_ci_lower_bound
 chr2	218245826	218245918	+	10904	10904	10904	tRNAscan	10904	tRNAscan	0.00	0.00	0.00	0.00	0.39	0.27	1.61416e-06	1.18978	1.12025e-06
 chr6	27020346	27020439	+	12954	12954	12954	tRNAscan	12954	tRNAscan	0.39	0.27	0.59	0.49	0.61	0.42	6.73236e-06	1.63611	4.67244e-06
 chr6	27091742	27091813	+	12956	12956	12956	tRNAscan	12956	tRNAscan	0.00	0.00	0.00	0.00	0.61	0.42	1.89079e-05	1.84643	1.31234e-05

@@ -75,13 +75,18 @@ object Transformer
     val printWriter = new PrintWriter(new FileWriter(outputFile))
 
     outputFileColumnsGTF.foreach(key => printWriter.print(key+"\t"))
-    outputFileColumnsTSV.foreach(key => printWriter.print(key+"\t"))
+
+    for(i <- outputFileColumnsTSV.indices){
+      printWriter.print(outputFileColumnsTSV(i))
+      if(i < outputFileColumnsTSV.length-1)printWriter.print("\t")
+    }
+    
     printWriter.println()
 
     //Iterate the tsv file's lines
     for(i <- tsvLines.indices){
 
-      //if(i > 655) return //Limit the id to process for testing
+      if(i > 655) return //Limit the id to process for testing
 
       breakable{
         if(i == 0)break //skip the line with the header
