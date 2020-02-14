@@ -1,5 +1,7 @@
 import java.io.{File, FileWriter, PrintWriter}
 
+import gtf.{GTF, GTFLoader}
+
 import scala.collection.mutable
 import scala.io.{BufferedSource, Source}
 import scala.util.control.Breaks.{break, breakable}
@@ -57,6 +59,9 @@ object Transformer
     TSV_KEY_POSTERIOR_STANDARD_DEVIATION_OF_COUNT, TSV_KEY_PME_TPM, TSV_KEY_PME_FPKM, TSV_KEY_TPM_CI_LOWER_BOUND, TSV_KEY_TPM_CI_UPPER_BOUND, TSV_KEY_FPKM_CI_LOWER_BOUND)
 
   def main(args: Array[String]): Unit = {
+
+
+    //val gtf = GTFLoader.load("gencode_files/gencode.v24.primary_assembly.annotation.trimmed.gtf")
     transform(TSV_1_PATH)
   }
 
@@ -66,13 +71,13 @@ object Transformer
     val tsvLines = tsvFile.getLines().toArray[String] //create an array with all the lines fof the tsv file
     tsvFile.close()
 
-    print(getClass.getResource("gencode_files"))
-
     val tsvHeader = tsvLines(0).split("\t") //extract the header fields from the first line
 
     val tsvName = tsvFilePath.split("/").last
     val outputFile = new File("transformed/"+tsvName+".transformed.tsv")
     val printWriter = new PrintWriter(new FileWriter(outputFile))
+
+
 
     outputFileColumnsGTF.foreach(key => printWriter.print(key+"\t"))
 
@@ -80,15 +85,15 @@ object Transformer
       printWriter.print(outputFileColumnsTSV(i))
       if(i < outputFileColumnsTSV.length-1)printWriter.print("\t")
     }
-    
+
     printWriter.println()
 
     //Iterate the tsv file's lines
     for(i <- tsvLines.indices){
 
-      if(i > 655) return //Limit the id to process for testing
+      //if(i > 655) return //Limit the id to process for testing
 
-      breakable{
+      /*breakable{
         if(i == 0)break //skip the line with the header
 
         //covert the current line in an HashMap
@@ -117,16 +122,16 @@ object Transformer
           printWriter.flush()
 
         }
-      }
+      }*/
     }
     printWriter.close()
   }
 
-
+/*
   /**
     *
-    * @param tsvId The gene/transcript id to search in GTF files
-    * @return An HashMap that contains all the information about the given id, contained in GTF files
+    * @param tsvId The gene/transcript id to search in gtf.GTF files
+    * @return An HashMap that contains all the information about the given id, contained in gtf.GTF files
     */
   def findId(tsvId : String) : mutable.HashMap[String, String] =
   {
@@ -134,7 +139,7 @@ object Transformer
     val isGene = tsvId.startsWith(GENE_ID_PREFIX)
     val isTranscript = tsvId.startsWith(TRANSCRIPT_ID_PREFIX)
 
-    //Open the GTF files
+    //Open the gtf.GTF files
     val gencodeFiles : Array[BufferedSource] = new Array[BufferedSource](2)
     if(isGene || isTranscript){
       gencodeFiles(0) = Source.fromResource(GENE_TRANSCRIPT_QUANTIFICATION_GRCH38_PATH)
@@ -149,14 +154,14 @@ object Transformer
 
     var found = false
 
-    //Iterate the two GTF files
+    //Iterate the two gtf.GTF files
     for(gencodeFile <- gencodeFiles){
 
       breakable{
 
         if(found)break
 
-        //Iterate all the line of one GTF file
+        //Iterate all the line of one gtf.GTF file
         for(line <- gencodeFile.getLines()){
           breakable{
             if(line.startsWith("##") || found)break
@@ -173,7 +178,7 @@ object Transformer
             val geneId = gencodeDataMap(GTF_KEY_GENE_ID)
             val transcriptId = gencodeDataMap.getOrElse(GTF_KEY_TRANSCRIPT_ID, "")
 
-            //Check if the tsvId match with the id of the GTF file line and if the line has the correct feature type for that id
+            //Check if the tsvId match with the id of the gtf.GTF file line and if the line has the correct feature type for that id
             if(((isGene || isTrnaScan) && !geneId.equals(tsvId)) || (isTranscript && !transcriptId.equals(tsvId)))break
 
             found = true
@@ -189,14 +194,15 @@ object Transformer
       }
     }
 
-    //if the id is not found in the GTF files, than return an empty HashMap
+    //if the id is not found in the gtf.GTF files, than return an empty HashMap
     if(!found)return new mutable.HashMap[String, String]()
     gencodeDataMap
-  }
+  }*/
 
+  /*
   /**
     *
-    * @param data The additional information contained in the ninth column of GTF file (format: key "value"; )
+    * @param data The additional information contained in the ninth column of gtf.GTF file (format: key "value"; )
     * @return A HashMap that contains all the information divided by key and values
     */
   def mapGTFData(data : String) : mutable.HashMap[String, String] =
@@ -211,7 +217,7 @@ object Transformer
       map.+=((key, value))
     })
     map
-  }
+  }*/
 
   /**
     *
