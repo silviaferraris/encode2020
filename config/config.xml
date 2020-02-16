@@ -1,0 +1,49 @@
+<configuration>
+
+    <input_folder>tsv</input_folder>
+    <output_folder>transformed</output_folder>
+    <gtf_folder>gencode_files</gtf_folder>
+
+    <gene_quantification_schema>
+        <key source="gtf">chr</key>
+        <key source="gtf">start</key>
+        <key source="gtf">stop</key>
+        <key source="gtf">strand</key>
+        <key source="tsv">gene_id</key>
+        <key source="gtf">gene_name</key>
+        <key source="gtf">gene_type</key>
+        <key source="tsv">TPM</key>
+        <key source="tsv">FPKM</key>
+        <key source="tsv">posterior_mean_count</key>
+        <key source="tsv">posterior_standard_deviation_of_count</key>
+        <key source="tsv">pme_TPM</key>
+        <key source="tsv">pme_FPKM</key>
+        <key source="tsv">TPM_ci_lower_bound</key>
+        <key source="tsv">TPM_ci_upper_bound</key>
+        <key source="tsv">FPKM_ci_lower_bound</key>
+    </gene_quantification_schema>
+
+    <transcript_quantification_schema>
+        <key source="gtf">chr</key>
+        <key source="gtf">start</key>
+        <key source="gtf">stop</key>
+        <key source="gtf">strand</key>
+        <key source="tsv">gene_id</key>
+        <key source="tsv">transcript_id</key>
+        <key source="gtf">gene_name</key>
+        <key source="gtf">gene_type</key>
+        <key source="gtf">transcript_name</key>
+        <key source="gtf">transcript_type</key>
+        <key source="tsv">TPM</key>
+        <key source="tsv">FPKM</key>
+        <key source="tsv">posterior_mean_count</key>
+        <key source="tsv">posterior_standard_deviation_of_count</key>
+        <key source="tsv">pme_TPM</key>
+        <key source="tsv">pme_FPKM</key>
+        <key source="tsv">TPM_ci_lower_bound</key>
+        <key source="tsv">TPM_ci_upper_bound</key>
+        <key source="tsv">FPKM_ci_lower_bound</key>
+    </transcript_quantification_schema>
+
+
+</configuration>

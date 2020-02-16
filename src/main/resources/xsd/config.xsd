@@ -1,0 +1,74 @@
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="key">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="keyType">
+          <xs:attribute name="source" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="gtf"/>
+                <xs:enumeration value="tsv"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="keyType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="input_folder">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="output_folder">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="gtf_folder">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="gene_quantification_schema">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="key" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="transcript_quantification_schema">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="key" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="configuration">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="input_folder"/>
+        <xs:element ref="output_folder"/>
+        <xs:element ref="gtf_folder"/>
+        <xs:element ref="gene_quantification_schema"/>
+        <xs:element ref="transcript_quantification_schema"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
