@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmqlSchemaCollection name="bedpe" xmlns="http://genomic.elet.polimi.it/entities">
+<gmqlSchema type="TAB">
+<field type="STRING">chrom1</field>
+<field type="LONG">start1</field>
+<field type="LONG">end1</field>
+<field type="STRING">chrom2</field>
+<field type="LONG">start2</field>
+<field type="LONG">end2</field>
+<field type="STRING">name</field>
+<field type="INTEGER">score</field>
+<field type="CHAR">strand1</field>
+<field type="CHAR">strand2</field>
+<field type="INTEGER">pairtobed</field>
+<field type="INTEGER">pairtopair</field>
+</gmqlSchema>
+</gmqlSchemaCollection>

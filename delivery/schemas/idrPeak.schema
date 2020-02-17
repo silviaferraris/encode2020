@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmqlSchemaCollection name="idrPeak" xmlns="http://genomic.elet.polimi.it/entities">
+<gmqlSchema type="TAB">
+<field type="STRING">chrom</field>
+<field type="LONG">start</field>
+<field type="LONG">end</field>
+<field type="STRING">name</field>
+<field type="INTEGER">score</field>
+<field type="CHAR">strand</field>
+<field type="FLOAT">localidr</field>
+<field type="FLOAT">globalidr</field>
+<field type="INTEGER">rep1chromstart</field>
+<field type="INTEGER">rep1chromend</field>
+<field type="FLOAT">rep1count</field>
+<field type="INTEGER">rep2chromstart</field>
+<field type="INTEGER">rep2chromend</field>
+<field type="FLOAT">rep2count</field>
+</gmqlSchema>
+</gmqlSchemaCollection>

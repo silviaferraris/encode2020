@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmqlSchemaCollection name="exonscore" xmlns="http://genomic.elet.polimi.it/entities">
+    <gmqlSchema type="TAB">
+        <field type="STRING">exonchrom</field>
+        <field type="LONG">exonstart</field>
+        <field type="LONG">exonend</field>
+        <field type="STRING">exonname</field>
+        <field type="INTEGER">exonscore</field>
+        <field type="CHAR">exonstrand</field>
+        <field type="DOUBLE">rmskhitchrom</field>
+        <field type="INTEGER">rmskhitstart</field>
+        <field type="INTEGER">rmskhitend</field>
+    </gmqlSchema>
+</gmqlSchemaCollection>

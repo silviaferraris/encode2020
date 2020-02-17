@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmqlSchemaCollection name="tsspeak" xmlns="http://genomic.elet.polimi.it/entities">
+<gmqlSchema type="TAB">
+<field type="STRING">chrom</field>
+<field type="LONG">start</field>
+<field type="LONG">stop</field>
+<field type="CHAR">strand</field>
+<field type="LONG">geneid</field>
+<field type="LONG">transcriptid</field>
+<field type="LONG">genename</field>
+<field type="STRING">genetype</field>
+<field type="LONG">transcriptname</field>
+<field type="STRING">transcripttype</field>
+<field type="DOUBLE">tpm</field>
+<field type="DOUBLE">fpkm</field>
+<field type="DOUBLE">posteriormeancount</field>
+<field type="DOUBLE">posteriorstandarddeviationofcount</field>
+<field type="DOUBLE">pmetpm</field>
+<field type="DOUBLE">pmefpkm</field>
+<field type="STRING">tpmcilowerbound</field>
+<field type="DOUBLE">tpmciupperbound</field>
+<field type="STRING">fpkmcilowerbound</field>
+</gmqlSchema>
+</gmqlSchemaCollection>
